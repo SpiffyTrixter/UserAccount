@@ -1,0 +1,52 @@
+version: "3"
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: build/php/Dockerfile
+    env_file:
+      - php.env
+      - local.env
+    volumes:
+      - .:/var/www:rw,cached
+      - ~/.ssh:/root/.ssh_external
+      - ./build/php/apache.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./build/php/php.ini:/usr/local/etc/php/conf.d/z-custom.ini
+    links:
+      - mysql
+    ports:
+      - "80:80"
+  debug:
+    build:
+      context: ./
+      dockerfile: build/php/Dockerfile
+    env_file:
+      - php.env
+      - local.env
+    volumes:
+      - .:/var/www:rw,cached
+      - ./build/php/apache.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./build/php/php.ini:/usr/local/etc/php/conf.d/z-custom.ini
+    links:
+      - mysql
+    ports:
+      - "9080:80"
+  mysql:
+    build: build/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: app
+      MYSQL_DATABASE: app
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+  adminer:
+    build:
+      context: ./
+      dockerfile: build/adminer/Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./build/adminer/adminer.env
+volumes:
+  mysql:

@@ -1,0 +1,11 @@
+local.env
+.DS_Store
+gl-code-quality-report.json
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/tasks.xml
+.idea/shelf
+.idea/inspectionProfiles/profiles_settings.xml
+/vendor
+composer.lock
+/config/local.php
