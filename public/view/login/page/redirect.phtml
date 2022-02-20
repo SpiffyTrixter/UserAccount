@@ -1,0 +1,9 @@
+<?php
+use UserAccount\Entity\User;
+/**
+ * @var User $user
+ */
+?>
+<div class="mb-3 w-25">
+    <p><?= $user->getFirstname() ?> <?= $user->getLastname() ?> <?= $user->getEmail() ?></p>
+</div>

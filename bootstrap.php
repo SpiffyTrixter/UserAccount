@@ -1,5 +1,6 @@
 <?php
 
+use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\Tools\Setup;
@@ -25,10 +26,20 @@ $cache = null;
 $useSimpleAnnotationReader = false;
 $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
 
-$conn = array(
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db.sqlite',
+$connectionParams = array(
+    'host'     => 'mysql',
+    'port'     => '3306',
+    'user'     => 'root',
+    'password' => 'app',
+    'dbname'   => 'app',
+    'driver' => 'pdo_mysql',
 );
+
+try {
+    $conn = DriverManager::getConnection($connectionParams);
+} catch (\Doctrine\DBAL\Exception $e) {
+    echo $e->getMessage();
+}
 
 try {
     $entityManager = EntityManager::create($conn, $config);

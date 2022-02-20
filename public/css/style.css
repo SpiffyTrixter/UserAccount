@@ -1,0 +1,118 @@
+:root {
+    --accent-color: #FF6700;
+    --text-title-color: #F9B325;
+    --text-color: #8E9B90;
+    --background-accent-color: #444545;
+    --background-color: #1E212B;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.item-container {
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: start;
+    align-items: flex-start;
+    -moz-box-pack: start;
+    justify-content: flex-start;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    margin: 30px 0;
+    height: 100%;
+    width: 100%;
+    max-width: 1140px;
+    background-color: #fff;
+    /* border: 1px solid #ededed; */
+    border-radius: 4px;
+    -webkit-box-shadow: 0 4px 16px 0 rgb(76 141 235 / 10%);
+    box-shadow: 0 4px 16px 0 rgb(76 141 235 / 10%);
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.container-content{
+    padding: 35px 30px 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.container-title{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.container-text {
+    margin: 20px 0 25px;
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+}
+
+.container-text-row {
+    display: -moz-box;
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.container-text-column {
+    display: -moz-box;
+    display: flex;
+    -moz-box-align: start;
+    align-items: flex-start;
+    -moz-box-pack: start;
+    justify-content: flex-start;
+}
+
+.space {
+    max-width: 220px;
+    min-width: 220px;
+}
+
+.input {
+    margin: 0 10px;
+}
+
+.row-container {
+    max-width: 440px;
+    flex-direction: column;
+}
+
+.right{
+    justify-content: flex-end;
+}
+
+.between{
+    justify-content: space-between;
+}
+
+.input-wrapper {
+    width: 100%;
+    max-width: 660px;
+}
+
+.half {
+    width: 50%;
+    margin: 0;
+}
+
+.hidden-link {
+    color: black;
+}
